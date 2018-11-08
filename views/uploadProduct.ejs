@@ -1,0 +1,57 @@
+<% include linkLayout.ejs %>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <script>
+    jQuery(document).ready(function() {
+      $().UItoTop({
+        easingType: 'easeOutQuart'
+      });
+    });
+  </script>
+
+  </head>
+
+  <body>
+    <% include headerLayout.ejs %>
+
+
+<div id ="wrapContext">
+<div class="span3"  >
+    <h2>상품 등록 </h2>
+    <form method="post">
+      <label>사료 id</label>
+      <input type="text" name="product_id" class="span3">
+    <label>사료 이름</label>
+    <input type="text" name="product_name" class="span3">
+    <label>사료 유형</label>
+    <input type="text" name="foodType" class="span3">
+    <label>가격</label>
+    <input type="text" name="price" class="span3">
+    <label>영양소 단백질</label>
+    <input type="text" name="protein" class="span3">
+    <label>영양소 지방</label>
+    <input type="text" name="fat" class="span3">
+    <label>영양소 섬유질</label>
+    <input type="text" name="fibre" class="span3">
+    <label>영양소 미네랄</label>
+    <input type="text" name="ash" class="span3">
+    <label>영양소 수분</label>
+    <input type="text" name="moisture" class="span3">
+    <label>견종 연령</label>
+    <input type="text" name="feedTo" class="span3">
+    <label>판매회사</label>
+    <input type="text" name="company" class="span3">
+    <input type="submit" value="upload" class="btn btn-primary pull-right">
+    <div class="clearfix"></div>
+    </form>
+</div>
+</div>
+<style>
+#wrapContext {
+  margin: auto;
+   width: 60%;
+}
+</style>
+  </body>

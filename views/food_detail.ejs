@@ -1,0 +1,18 @@
+<% include linkLayout.ejs %>
+
+<h1>사료의 자세한 정보 보기!</h1>
+<% data.forEach(function (products, index) { %>
+
+  <h5> 상품명 <%= products.name_en %> </h5>
+  <h5>상품 유형 <%= products.type %> </h5>
+  <h5>상품 애견 연령 <%= products.feedTo %> </h5>
+  <h5>상품 회사 <%= products.company %> </h5>
+  <h5>영양소 단백질 <%= products.protein %> </h5>
+  <h5>영양소 지방 <%= products.fat %> </h5>
+  <h5>영양소 섬유질 <%= products.fibre %> </h5>
+  <h5>영양소 미네랄 <%= products.ash %> </h5>
+  <h5>영양소 수분 <%= products.moisture %> </h5>
+</tr>
+<% }); %>
+</table>
+</body>

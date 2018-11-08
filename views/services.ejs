@@ -1,0 +1,156 @@
+<% include linkLayout.ejs %>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<% include headerLayout.ejs %>
+     <script>
+    jQuery(document).ready(function() {
+    $().UItoTop({ easingType: 'easeOutQuart' });
+    });
+     </script>
+
+     </head>
+     <body>
+
+
+       <div class="content">
+         <div class="container_12">
+         <div class="grid_12">
+
+           <h2 class="ic1" >Special Services</h2>
+         </div>
+         <div class="clear"></div>
+         <div class="grid_4">
+            <div class="pad2"> <img src="images/page3_img3.jpg" alt="" class="img_inner fleft i2">
+             <div class="extra_wrapper"><div class="text2 col2"><a href="#">사료</a></div>우리 강아지에게 딱 맞는 인기상품을 찾아보세요♡
+           사료들의 모든 정보를 한눈에 볼 수 있습니다  </div>
+           </div></div>
+           <div class="grid_4">
+           <div class="pad2">  <img src="images/page3_img4.jpg" alt="" class="img_inner fleft i2">
+             <div class="extra_wrapper"><div class="text2 col2"><a href="#">간식
+       </a></div>간식에 대한 모든것! 강아지에게도 고급스러운 맛과 영양을 동시에 !</div><div class="clear"></div></div>
+           </div>
+           <div class="grid_4">
+           <div class="pad2">  <img src="images/page3_img5.jpg" alt="" class="img_inner fleft i2">
+             <div class="extra_wrapper"><div class="text2 col2"><a href="#">꿀팁정보</a></div>유용한 정보들은 꿀팁정보에
+           모아집니다. 도움이 되는 여러 정보들을 get하세요! </div><div class="clear"></div></div>
+           </div>
+
+         </div>
+       </div>
+
+<!--search box-->
+
+<div class="page1_block nb">
+  <body>
+  <div id="container_wrap">
+    <hr>
+    <a href="/uploadProduct"  role="button">상품 올리기</a>
+     <hr>
+    <div class="container">
+    	<div class="row">
+    		<div id="custom-search-input">
+                <div class="input-group col-md-10">
+                    <input type="text" class="  search-query form-control" placeholder="검색" id="keyword"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+    	</div>
+    </div>
+    <hr>
+  <table id="products" width = "120%" border = "1">
+    <thead>
+      <tr>
+        <th>상품id</th>
+        <th>상품이름</th>
+        <th>유형</th>
+        <th>애견연령</th>
+        <th>회사</th>
+        <th>삭제</th>
+
+      </th>
+    </thead>
+
+    <% data.forEach(function (products, index) { %>
+    <tr>
+      <td width="10%" ><%= products.product_id %> </td>
+      <td><a href="/food_detail/<%= products.product_id %>"><%= products.name_en %></a> </td>
+      <td><%= products.type %> </td>
+      <td><%= products.feedTo %></td>
+      <td><%= products.company %> </td>
+      <td><a href="/update/<%= products.product_id %>"> 수정 </a>/<a href ="/delete/<%= products.product_id %>">삭제</a></td>
+    </tr>
+    <% }); %>
+  </table>
+
+  <style>
+  #container_wrap {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  #container_wrap #input-form {
+    text-align: center;
+  }
+
+  #products {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #input-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #products {
+    border-collapse: collapse;
+  }
+
+  #products>thead>tr {
+    background-color: #333;
+    color: #fff;
+  }
+
+  #products>thead>tr>th {
+    padding: 8px;
+    width: 150px;
+  }
+
+  #products>tbody>tr>td {
+    border-bottom: 1px solid gray;
+    padding: 8px;
+  }
+  </style>
+
+
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+  <script type='text/javascript'>
+
+  $("#keyword").keyup(function() {
+       var k = $(this).val();
+       $("#products > tbody > tr").hide();
+       var p_id = $("#products > tbody > tr > td:nth-child(7n+1):contains('" + k + "')");
+       var p_name = $("#products > tbody > tr > td:nth-child(7n+2):contains('" + k + "')");
+       var p_type = $("#products > tbody > tr > td:nth-child(7n+3):contains('" + k + "')");
+       var p_feedTo = $("#products > tbody > tr > td:nth-child(7n+4):contains('" + k + "')");
+        var p_company = $("#products > tbody > tr > td:nth-child(7n+5):contains('" + k + "')");
+
+       $(p_id).parent().show();
+        $(p_name).parent().show();
+         $(p_type).parent().show();
+          $(p_feedTo).parent().show();
+          $(p_company).parent().show();
+     })
+
+  </script>
+</div>
+<!--=======content================================-->
+
+
+<% include footerLayout.ejs %>

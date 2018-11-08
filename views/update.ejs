@@ -1,0 +1,42 @@
+
+
+<% data.forEach(function (products, index) { %>
+
+<div id ="wrapContext">
+<div class="span3"  >
+    <h2>상품 수정 </h2>
+    <form method="post">
+    <label>사료 이름</label>
+    <input type="text" name="product_name" class="span3" value ="<%= products.name_en %>" >
+    <label>사료 유형</label>
+    <input type="text" name="foodType" class="span3" value ="<%= products.type %>">
+    <label>가격</label>
+    <input type="text" name="price" class="span3" value ="<%= products.price %>">
+    <label>영양소 단백질</label>
+    <input type="text" name="protein" class="span3" value ="<%= products.protein %>">
+    <label>영양소 지방</label>
+    <input type="text" name="fat" class="span3" value ="<%= products.fat %>">
+    <label>영양소 섬유질</label>
+    <input type="text" name="fibre" class="span3" value ="<%= products.fibre %>">
+    <label>영양소 미네랄</label>
+    <input type="text" name="ash" class="span3" value ="<%= products.ash %>">
+    <label>영양소 수분</label>
+    <input type="text" name="moisture" class="span3" value ="<%= products.moisture %>">
+    <label>견종 연령</label>
+    <input type="text" name="feedTo" class="span3" value ="<%= products.feedTo %>">
+    <label>판매회사</label>
+    <input type="text" name="company" class="span3" value ="<%= products.company %>">
+    <input type="submit" value="upload" class="btn btn-primary pull-right">
+    <div class="clearfix"></div>
+    </form>
+</div>
+</div>
+  <% }); %>
+
+<style>
+#wrapContext {
+  margin: auto;
+   width: 60%;
+}
+</style>
+  </body>
